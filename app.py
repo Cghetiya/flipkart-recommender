@@ -351,17 +351,3 @@ if not result.empty:
 else:
     st.info("No products match your current filter criteria. Try adjusting your selections!")
 
-# --- Footer (Optional) ---
-st.markdown("""
-    <style>
-        .footer {
-            text-align: center;
-            padding-top: 40px; /* More space above footer */
-            font-size: 0.85em;
-            color: #777; /* Softer gray */
-        }
-    </style>
-    <div class="footer">
-        Powered by AI & Streamlit | 2025
-    </div>
-""", unsafe_allow_html=True)
