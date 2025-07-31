@@ -279,7 +279,7 @@ st.markdown("""
 @st.cache_data
 def load_data():
     df = pd.read_csv('ml_predictions_for_streamlit.csv')
-    df['who'] = df['who'].astype(str).str.strip().str.lower()
+    df['Who'] = df['Who'].astype(str).str.strip().str.lower()
     df['Brand'] = df['Brand'].astype(str).str.strip()
     df['Product Type'] = df['Product Type'].astype(str).str.strip()
     return df
@@ -296,12 +296,12 @@ with st.container():
     with st.expander("Adjust your product filters", expanded=True):
         col1, col2, col3, col4 = st.columns([1.5, 1.5, 1.5, 1])
         with col1:
-            who_values = set(x.strip().lower() for x in df['Who'].unique())
-            if 'kid' in who_values or 'kids' in who_values:
-                who_options = ['All', 'kid', 'men', 'women']
+            Who_values = set(x.strip().lower() for x in df['Who'].unique())
+            if 'kid' in Who_values or 'kids' in Who_values:
+                Who_options = ['All', 'kid', 'men', 'women']
             else:
-                who_options = ['All'] + sorted(who_values)
-            who = st.selectbox('Who is it for?', who_options, key="who_select")
+                Who_options = ['All'] + sorted(Who_values)
+            Who = st.selectbox('Who is it for?', Who_options, key="Who_select")
         with col2:
             brand_options = ['All'] + sorted(df['Brand'].unique())
             brand = st.selectbox('Select Brand', brand_options, key="brand_select")
@@ -320,8 +320,8 @@ with st.container():
 
 # --- Filtering Logic (Unchanged) ---
 filtered = df.copy()
-if who and who.lower() != 'all':
-    filtered = filtered[filtered['Who'] == who]
+if Who and Who.lower() != 'all':
+    filtered = filtered[filtered['Who'] == Who]
 if brand and brand.lower() != 'all':
     filtered = filtered[filtered['Brand'] == brand]
 if product_type and product_type.lower() != 'all':
