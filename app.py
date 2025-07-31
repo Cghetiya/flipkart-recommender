@@ -279,7 +279,7 @@ st.markdown("""
 @st.cache_data
 def load_data():
     df = pd.read_csv('ml_predictions_for_streamlit.csv')
-    df['Who'] = df['Who'].astype(str).str.strip().str.lower()
+    df['who'] = df['who'].astype(str).str.strip().str.lower()
     df['Brand'] = df['Brand'].astype(str).str.strip()
     df['Product Type'] = df['Product Type'].astype(str).str.strip()
     return df
